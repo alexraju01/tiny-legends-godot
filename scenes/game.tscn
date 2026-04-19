@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://4bi5gn332368"]
+[gd_scene format=3 uid="uid://crrdad6b4twr2"]
 
-[node name="Game" type="Node2D" unique_id=1426688532]
+[ext_resource type="PackedScene" uid="uid://b8byc51c2tm3u" path="res://scenes/map.tscn" id="1_6e84v"]
+[ext_resource type="PackedScene" uid="uid://d2cno1drqi1al" path="res://scenes/entities/player/player.tscn" id="2_4dvvg"]
+
+[node name="Game" type="Node2D" unique_id=1453387314]
+y_sort_enabled = true
+
+[node name="Map" parent="." unique_id=1250700946 instance=ExtResource("1_6e84v")]
+
+[node name="Player" parent="." unique_id=801291984 instance=ExtResource("2_4dvvg")]
+position = Vector2(444, 265)
