@@ -20,18 +20,19 @@ func movement_loop() -> void:
 	# 1. ATTACK LOCK
 	# We now check the AnimationPlayer instead of the Sprite
 	if state == State.ATTACK:
-		if $HitBox/AnimationPlayer.is_playing():
+		if $AnimationPlayer.is_playing():
 			return 
 		else:
 			state = State.IDLE
+#@onready var animation_player: AnimationPlayer = $HitBox/AnimationPlayer
 
 	# 2. TRIGGER ATTACK
 	if Input.is_action_just_pressed("Attack"):
 		state = State.ATTACK
 		velocity = Vector2.ZERO
 		# FIX: Use AnimationPlayer so the HitBox actually moves!
-		$HitBox/AnimationPlayer.play("Attack")
-		$AnimatedSprite2D.play("Attack")
+		$AnimationPlayer.play("Attack")
+		#$AnimatedSprite2D.play("Attack")
 		return
 
 	# 3. BLOCK LOGIC
@@ -64,5 +65,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.owner and area.owner.has_method("take_damage"):
 		area.owner.take_damage(attack_damage)
 		print("+", attack_damage, " damage dealt to ", area.owner.name)
-	else:
-		print("Hit something, but it has no take_damage function!")
+	#else:
+		#print("Hit something, but it has no take_damage function!")

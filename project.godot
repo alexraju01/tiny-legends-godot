@@ -51,7 +51,7 @@ Block={
 [layer_names]
 
 2d_physics/layer_1="Evironment"
-2d_physics/layer_5="Enemey_Damage"
+2d_physics/layer_5="Enemy_Damage"
 2d_physics/layer_6="Player_Damage"
 
 [physics]

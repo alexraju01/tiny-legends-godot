@@ -453,6 +453,7 @@ sources/7 = SubResource("TileSetAtlasSource_081xv")
 
 [node name="Map" type="Node2D" unique_id=1250700946]
 y_sort_enabled = true
+position = Vector2(43, 125)
 
 [node name="Water" type="TileMapLayer" parent="." unique_id=395408396]
 position = Vector2(0, -1)

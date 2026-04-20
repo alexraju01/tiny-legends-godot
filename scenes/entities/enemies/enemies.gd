@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 
 @export_category("Stats")
-@export var hitpoints: int = 100
+@export var hitpoints: int = 20
 
 const SPEED = 300.0
+var is_dead: bool = false
 #const JUMP_VELOCITY = -400.0
 
 
@@ -32,6 +33,8 @@ const SPEED = 300.0
 
 
 func take_damage(damage_taken:int) -> void:
+	if is_dead: return
+	
 	hitpoints -= damage_taken
 	if hitpoints <= 0:
 		death()
@@ -48,4 +51,17 @@ func _process(delta: float) -> void:
 	pass
 
 func death() -> void:
+	is_dead = true 
+	
+	# 1. Disable the physical body (stops bumping into the player)
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	# 2. Disable the damage-taking area (stops the 'ghost' hits)
+	# Replace "HurtBox" with the actual name of your Area2D node
+	if has_node("HurtBox"):
+		$HurtBox/CollisionShape2D.set_deferred("disabled", true)
+	
+	$AnimatedSprite2D.play("Death")
+	
+	await $AnimatedSprite2D.animation_finished
 	queue_free()
