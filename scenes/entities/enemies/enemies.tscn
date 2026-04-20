@@ -246,7 +246,6 @@ radius = 16.0
 radius = 30.306684
 
 [node name="enemy" type="CharacterBody2D" unique_id=801291984]
-position = Vector2(0, 2)
 script = ExtResource("1_tfdsr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=334125591]
