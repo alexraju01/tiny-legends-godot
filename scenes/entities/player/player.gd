@@ -10,12 +10,53 @@ enum State {
 @export_category("Stats")
 @export var speed: int = 300
 @export var attack_damage: int = 10
+@export var hitpoints: int = 50
+
+@export_category("Related Scenes")
+@export var death_packed:PackedScene
 
 var state: State = State.IDLE
 var facing_direction := 1 # 1 = right, -1 = left
+var is_dead: bool = false
 
 func _physics_process(_delta: float) -> void:
 	movement_loop()
+
+
+func take_damage(damage_taken:int) -> void:
+	if is_dead: return
+	
+	print(hitpoints)
+	hitpoints -= damage_taken
+	if hitpoints <= 0:
+		death()
+	
+
+func death() -> void:
+	var death_scene: Node2D = death_packed.instantiate()
+	death_scene.position = global_position + Vector2(0.0, -32.0)
+	%Effects.add_child(death_scene)
+	queue_free()
+
+
+
+#func player_take_damage(damage: int) -> void:
+	## If player is blocking, reduce or negate damage
+	#if state == State.BLOCK:
+		#print("Player blocked the attack! 0 damage taken.")
+		#return
+		#
+	#hitpoints -= damage
+	#print("Player took ", damage, " damage! Current HP: ", hitpoints)
+	#print(hitpoints)
+	#if hitpoints <= 0:
+		#player_death()
+
+#func player_death() -> void:
+	#print("Player has died!")
+	## Add death animation or scene reload here
+	#get_tree().reload_current_scene()
+#
 
 func movement_loop() -> void:
 	# 1. ATTACK LOCK
@@ -70,8 +111,11 @@ func movement_loop() -> void:
 			state = State.IDLE
 			$AnimatedSprite2D.play("Idle")
 
+
+
+
 # DAMAGE
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.owner and area.owner.has_method("take_damage"):
+	#if area.owner and area.owner.has_method("take_damage"):
 		area.owner.take_damage(attack_damage)
 		print("+", attack_damage, " damage dealt to ", area.owner.name)

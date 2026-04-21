@@ -433,3 +433,12 @@ position = Vector2(539, 78)
 [node name="enemy" parent="." unique_id=1546780324 instance=ExtResource("16_p7tei")]
 y_sort_enabled = true
 position = Vector2(721, 247)
+speed = null
+attack_damage = null
+attack_speed = null
+hitpoints = null
+aggro_range = null
+attack_range = null
+
+[node name="Effects" type="Node2D" parent="." unique_id=998280609]
+unique_name_in_owner = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ciseir2l4ts8o" path="res://assets/Units/Black Units/Warrior/Warrior_Idle.png" id="1_1hmtu"]
 [ext_resource type="Script" uid="uid://c23fhdujd6xog" path="res://scenes/entities/player/player.gd" id="1_635qg"]
+[ext_resource type="PackedScene" uid="uid://y8vhvx6bc5jn" path="res://scenes/death.tscn" id="2_8akj5"]
 [ext_resource type="Texture2D" uid="uid://cp883l16odmau" path="res://assets/Units/Black Units/Warrior/Warrior_Attack1.png" id="2_nh4ur"]
 [ext_resource type="Texture2D" uid="uid://dyvjga2v3wcga" path="res://assets/Units/Black Units/Warrior/Warrior_Run.png" id="3_58kc7"]
 [ext_resource type="Texture2D" uid="uid://t7hd52x65e4i" path="res://assets/Units/Black Units/Warrior/Warrior_Guard.png" id="3_bjvvg"]
@@ -508,14 +509,18 @@ _data = {
 &"RESET": SubResource("Animation_8akj5")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjvvg"]
+radius = 30.306684
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1murt"]
 size = Vector2(14, 41)
 
-[node name="Player" type="CharacterBody2D" unique_id=801291984]
+[node name="Player" type="CharacterBody2D" unique_id=801291984 groups=["player"]]
 position = Vector2(0, -8)
 script = ExtResource("1_635qg")
+death_packed = ExtResource("2_8akj5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=334125591]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=334125591 groups=["player"]]
 position = Vector2(0, -31)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
@@ -529,6 +534,18 @@ shape = SubResource("CircleShape2D_3vyb7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716296269]
 libraries/ = SubResource("AnimationLibrary_bj7e2")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=512618693]
+scale = Vector2(1.3646915, 0.9610482)
+collision_layer = 32
+collision_mask = 0
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1441808689]
+position = Vector2(-1.4655327, -46.823875)
+scale = Vector2(1, 1.2830355)
+shape = SubResource("CircleShape2D_bjvvg")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=252231099]
 position = Vector2(22, -29)
@@ -544,4 +561,5 @@ monitorable = false
 position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_1murt")
 
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
