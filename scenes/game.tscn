@@ -5,3 +5,4 @@
 [node name="Game" type="Node2D" unique_id=1453387314]
 
 [node name="Map" parent="." unique_id=1250700946 instance=ExtResource("4_iywne")]
+position = Vector2(-47, 21)
