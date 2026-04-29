@@ -531,6 +531,7 @@ flip_h = true
 shape = SubResource("CircleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1184005146]
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716296269]
 libraries/ = SubResource("AnimationLibrary_bj7e2")
