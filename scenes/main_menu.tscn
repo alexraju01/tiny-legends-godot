@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dc7bj8b5j3wi6"]
+
+[ext_resource type="Texture2D" uid="uid://s6ereoxdk63e" path="res://assets/UI Elements/UI Elements/Buttons/blueButton.png" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cwsmfqf50cqo2" path="res://assets/UI Elements/UI Elements/Buttons/blueButtonPressed.png" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://d00h4ctsh5ohj" path="res://assets/fonts/PirataOne-Regular.ttf" id="3_bqqt6"]
+
+[node name="MainMenu" type="Node2D" unique_id=810394133]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=804326454]
+offset_right = 600.0
+offset_bottom = 639.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NewGame" type="TextureButton" parent="VBoxContainer" unique_id=513949441]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ekxnf")
+texture_pressed = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/NewGame" unique_id=760947239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.69411767)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="VBoxContainer" unique_id=1234647805]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ekxnf")
+texture_pressed = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings" unique_id=1597881963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.69411767)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="About" type="TextureButton" parent="VBoxContainer" unique_id=166746873]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ekxnf")
+texture_pressed = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/About" unique_id=948977087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.69411767)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exits" type="TextureButton" parent="VBoxContainer" unique_id=1099528516]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ekxnf")
+texture_pressed = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Exits" unique_id=1066815074]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.69411767)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
